@@ -4,6 +4,25 @@
 
 如果你第一次使用 LaTeX，建议先按“快速开始”完成一次原样编译，确认能生成 PDF 后，再替换题名、个人信息、摘要和章节正文。
 
+## 渲染预览
+
+以下图片由当前模板 PDF 以 220 DPI 渲染生成，用于快速查看封面、诚信承诺、目录和摘要页效果。正式使用时，请以本地或 Overleaf 编译得到的 PDF 为准。
+
+<p align="center">
+	<img src="docs/preview/cover.png" alt="宁波大学本科毕业论文模板封面渲染预览" width="520">
+</p>
+
+<table>
+	<tr>
+		<td align="center"><img src="docs/preview/declaration.png" alt="诚信承诺页渲染预览" width="360"><br>诚信承诺页</td>
+		<td align="center"><img src="docs/preview/toc.png" alt="目录页渲染预览" width="360"><br>目录页</td>
+	</tr>
+	<tr>
+		<td align="center"><img src="docs/preview/abstract-zh.png" alt="中文摘要页渲染预览" width="360"><br>中文摘要页</td>
+		<td align="center"><img src="docs/preview/abstract-en.png" alt="英文摘要页渲染预览" width="360"><br>英文摘要页</td>
+	</tr>
+</table>
+
 ## 快速开始
 
 ### 方式一：使用 Overleaf
@@ -66,6 +85,8 @@ nbu-bachelor-thesis-template/
 ├── backmatter/
 │   ├── acknowledgements.tex # 致谢占位文本
 │   └── appendix_a.tex       # 附录占位文本
+├── docs/
+│   └── preview/             # README 使用的高清渲染预览图
 ├── fonts/                   # 完整包随附字体；Overleaf 精简包可能不含该目录
 ├── figures/                 # 图片目录，含宁波大学封面头图
 │   └── nbu_cover_header.png # 宁波大学封面头图
