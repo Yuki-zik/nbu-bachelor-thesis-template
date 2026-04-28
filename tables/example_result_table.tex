@@ -1,0 +1,16 @@
+% !TeX root = ../main.tex
+% 复杂实验结果表例外：列较多时可在 table 内调用 \nbucompacttable，使表内字号和行距局部收紧。
+\begin{table}[htbp]
+  \centering
+  \caption{复杂结果表占位示例}
+  \label{tab:compact-result-example}
+  \nbucompacttable
+  \begin{tabular}{C{0.20\textwidth}C{0.16\textwidth}C{0.16\textwidth}C{0.16\textwidth}C{0.16\textwidth}}
+    \toprule
+    方法 & 指标一 & 指标二 & 指标三 & 备注 \\
+    \midrule
+    Baseline & -- & -- & -- & 替换为真实结果 \\
+    Ours & -- & -- & -- & 替换为真实结果 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

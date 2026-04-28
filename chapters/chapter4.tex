@@ -1,0 +1,32 @@
+% !TeX root = ../main.tex
+\chapter{实验与结果展示示例}
+\label{chap:experiment-example}
+
+本章展示普通表格和复杂结果表的写法。正式论文中，实验章节应包括实验目标、设置、数据、指标、结果、分析和小结。没有真实实验日志时，不要填写虚构数值。
+
+\section{实验设置}
+\label{sec:experiment-setup}
+
+表题格式由模板自动设置为“表章号-表号  表题”。普通表格默认使用五号字、1.5 倍行距和三线表风格。
+
+\begin{table}[htbp]
+  \centering
+  \caption{实验设置字段示例}
+  \label{tab:setup-example}
+  \begin{tabular}{C{0.25\textwidth}P{0.55\textwidth}}
+    \toprule
+    项目 & 填写说明 \\
+    \midrule
+    数据集 & 写明数据来源、版本、样本数和划分方式。 \\
+    模型 & 写明模型名称、版本、参数规模和来源。 \\
+    指标 & 写明指标定义、统计单位和阈值选择方式。 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{结果表格}
+\label{sec:result-table}
+
+复杂结果表可以调用 \verb|\nbucompacttable|，该命令只作用于下一张表格，适合列较多的实验结果。示例见表~\ref{tab:compact-result-example}。
+
+\input{tables/example_result_table}

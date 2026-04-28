@@ -1,0 +1,69 @@
+% !TeX program = latexmk
+% !TeX encoding = UTF-8
+% 本文件是宁波大学本科毕业设计（论文）模板入口。请使用 latexmk 多轮编译；单独运行一次 xelatex 时目录和参考文献可能为空。
+% 通常只需要修改下方个人论文元信息和章节 input 顺序。
+\documentclass{nbubachelor}
+
+% =========================
+% 论文元信息：学校、学院及整理者贡献信息已预置；正式用于个人论文时，请按需替换。
+% =========================
+\universityname{宁波大学}
+\college{信息科学与工程学院}
+\titlecn{中文论文题目占位}
+\titleen{English Thesis Title Placeholder}
+\majorname{计算机科学与技术}
+\classname{2022 级阳明创新 2 班}
+\studentid{你的学号}
+\authorname{马千里}
+\supervisor{指导教师姓名}
+\finishdate{YYYY.MM.DD}
+\declarationdate{YYYY 年 MM 月 DD 日}
+\keywordszh{关键词一；关键词二；关键词三}
+\keywordsen{Keyword One; Keyword Two; Keyword Three}
+
+% 宁波大学封面头图已放入 figures/。如学校更新封面图，替换该文件或改成新的图片路径。
+\coverlogofile{figures/nbu_cover_header.png}
+
+% 参考文献数据库。默认使用 biblatex + biber。
+\addbibresource{references.bib}
+
+% 浮动体参数：减少图表独占页面造成的大面积留白。
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\textfraction}{0.12}
+\renewcommand{\floatpagefraction}{0.75}
+
+\begin{document}
+
+% 封面和诚信承诺页。二者格式由 nbubachelor.cls 统一控制。
+\hypersetup{pageanchor=false}
+\makecover
+\makedeclaration
+
+% 目录页不进入摘要罗马页码序列。
+\pagenumbering{gobble}
+\tableofcontents
+
+% 中英文摘要从罗马页码开始：中文摘要为 i，英文摘要为 ii。使用模板命令避免目录后出现空白页。
+\nbufrontmatter
+\hypersetup{pageanchor=true}
+\input{frontmatter/abstract_zh}
+\input{frontmatter/abstract_en}
+
+% 正文从阿拉伯页码 1 开始。
+\nbumainmatter
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+
+% 参考文献、致谢、附录均进入目录。
+\printbibliography[heading=bibintoc,title={参考文献}]
+\thesisacknowledgement{\input{backmatter/acknowledgements}}
+\appendix
+\chapter*{附录}
+\addcontentsline{toc}{chapter}{附录}
+\input{backmatter/appendix_a}
+
+\end{document}

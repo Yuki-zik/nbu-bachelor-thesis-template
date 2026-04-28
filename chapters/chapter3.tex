@@ -1,0 +1,21 @@
+% !TeX root = ../main.tex
+\chapter{方法设计示例}
+\label{chap:method-example}
+
+本章展示方法章的常见写法：先说明设计动机，再给出流程、变量、组件和判别规则。正式论文中，每个模块都应回答“为什么这样设计、如何实现、输出是什么”。
+
+\section{总体流程}
+\label{sec:method-flow}
+
+方法流程可以用段落、公式、图或算法描述。若使用图示，应确保图中术语与正文一致；若引用图，请使用自动编号，例如图~\ref{fig:ningbo-university-gate}。
+
+\section{关键模块}
+\label{sec:key-components}
+
+下面的列表展示正文中枚举项的排版方式。列表应服务于论证，不宜替代连续分析。
+
+\begin{enumerate}[label=\arabic*.]
+  \item 数据准备：说明样本来源、筛选规则和划分方式。
+  \item 特征构造：说明模型输入、输出和中间变量。
+  \item 判别规则：说明评分函数、阈值选择和评价指标。
+\end{enumerate}

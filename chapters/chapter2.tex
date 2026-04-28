@@ -1,0 +1,27 @@
+% !TeX root = ../main.tex
+\chapter{研究基础与问题建模}
+\label{chap:foundation}
+
+本章用于展示问题定义、公式、变量说明和交叉引用写法。正式论文中，应在公式前定义变量含义，并在公式后解释公式的作用，避免只堆叠符号。
+
+\section{基本概念}
+\label{sec:basic-concepts}
+
+设源对象为 $M_s$，待比较对象为 $M_u$，审计样本集合为 $\mathcal{Q}=\{q_i\}_{i=1}^{N}$。这里的符号仅作为模板示例；正式写作时应替换为本研究的真实对象和变量。
+
+\section{形式化目标}
+\label{sec:formal-objective}
+
+公式编号自动采用“章号.公式号”，例如式~\eqref{eq:sample-objective}。正文变量默认使用数学字体，不要把 Word 公式截图或公式对象残留复制到 TeX 源码中。
+
+\begin{equation}
+  S(M_u,M_s)=\frac{1}{N}\sum_{i=1}^{N}s\bigl(M_u(q_i),M_s(q_i)\bigr),
+  \label{eq:sample-objective}
+\end{equation}
+
+其中，$S(M_u,M_s)$ 表示两个对象在审计样本集合上的平均相似度，$s(\cdot,\cdot)$ 表示单个样本上的评分函数。正式论文中，评分函数、阈值和样本来源均应给出清晰定义。
+
+\subsection{三级标题示例}
+\label{subsec:third-level-example}
+
+三级标题用于功能性分段。若一个小节只有一两段文字，通常不需要继续拆分，以免目录碎片化。

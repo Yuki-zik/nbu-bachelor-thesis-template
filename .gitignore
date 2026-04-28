@@ -1,0 +1,26 @@
+# LaTeX build outputs
+build/
+tmp/
+output/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+*.pdf
+
+# Distribution archives belong in GitHub Releases, not source control
+*.zip
+*.tar
+*.tar.gz
+
+# OS/editor noise
+.DS_Store
+.vscode/
