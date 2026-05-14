@@ -8,6 +8,8 @@
 
 以下图片由当前模板 PDF 以 220 DPI 渲染生成，用于快速查看封面、诚信承诺、目录和摘要页效果。预览图额外添加了浅灰展示底和细边框，便于在 GitHub 页面中辨认纸张边界；正式使用时，请以本地或 Overleaf 编译得到的 PDF 为准。
 
+当前预览已同步摘要格式修复：中英文摘要正文、中文关键词内容、英文 `KEYWORDS` 标签和英文关键词内容均按实际小四字号显示。
+
 <p align="center">
 	<img src="docs/preview/cover.png" alt="宁波大学本科毕业论文模板封面渲染预览" width="520">
 </p>
@@ -83,7 +85,7 @@ nbu-bachelor-thesis-template/
 │   ├── chapter4.tex         # 实验与表格示例
 │   └── chapter5.tex         # 结论与展望示例
 ├── backmatter/
-│   ├── acknowledgements.tex # 致谢占位文本
+│   ├── acknowledgements.tex # 致谢示例文本
 │   └── appendix_a.tex       # 附录占位文本
 ├── docs/
 │   └── preview/             # README 使用的高清渲染预览图
@@ -137,6 +139,8 @@ latexmk -c
 
 Overleaf 精简包可能不包含 `fonts/`，用于降低上传体积。Overleaf 自带 TeX Live 和 Fandol 字体，通常仍可编译；如果你在本地使用，建议使用包含 `fonts/` 的完整包。
 
+摘要页使用独立的中英文摘要字体配置，避免中文楷体或英文字体在 PDF 中被压缩为 10.5 pt；完整包和无 `fonts/` 的精简包均应保持摘要正文与关键词内容为实际 12 pt。
+
 如学校后续要求改用指定字体，可替换 `fonts/` 中的字体文件，并同步修改 `nbubachelor.cls` 的字体配置。重新分发字体文件时，请遵守字体各自许可证。
 
 ## 如何使用模板
@@ -145,12 +149,13 @@ Overleaf 精简包可能不包含 `fonts/`，用于降低上传体积。Overleaf
 2. 先原样编译一次，确认 `build/main.pdf` 能生成。
 3. 在 `main.tex` 中保留 `\universityname{宁波大学}` 与 `\college{信息科学与工程学院}`。模板默认记录整理者贡献信息：专业为“计算机科学与技术”，班级为“2022 级阳明创新 2 班”，学生姓名为“马千里”。正式用于个人论文时，请替换 `\titlecn`、`\titleen`、`\majorname`、`\classname`、`\studentid`、`\authorname`、`\supervisor`、`\finishdate`、`\declarationdate`、`\keywordszh` 和 `\keywordsen`。
 4. 在 `frontmatter/abstract_zh.tex` 和 `frontmatter/abstract_en.tex` 中重写摘要正文。
-5. 在 `chapters/` 中替换示例章节内容。新增章节时，先创建 `chapters/your_chapter.tex`，再在 `main.tex` 中添加 `\input{chapters/your_chapter}`。
-6. 将图片放入 `figures/`，在正文中用 `figure` 环境和 `\includegraphics` 引用。文件名建议只使用英文、数字、短横线或下划线。
-7. 将复杂表格拆到 `tables/`，在章节中用 `\input{tables/table_name}` 引入。
-8. 在 `references.bib` 中维护参考文献，并在正文中用 `\cite{citation-key}` 引用。修改参考文献后请重新运行 `latexmk -xelatex main.tex`。
-9. 链接脚注示例见 `chapters/chapter1.tex`，写法为 `\footnote{\href{https://github.com/Yuki-zik}{GitHub: Yuki-zik}}`。
-10. 每次提交或交给老师前，重新完整编译一次，并检查目录、图表编号、参考文献和 PDF 页眉页脚。
+5. 在 `backmatter/acknowledgements.tex` 中将致谢示例替换为自己的真实表达。
+6. 在 `chapters/` 中替换示例章节内容。新增章节时，先创建 `chapters/your_chapter.tex`，再在 `main.tex` 中添加 `\input{chapters/your_chapter}`。
+7. 将图片放入 `figures/`，在正文中用 `figure` 环境和 `\includegraphics` 引用。文件名建议只使用英文、数字、短横线或下划线。
+8. 将复杂表格拆到 `tables/`，在章节中用 `\input{tables/table_name}` 引入。
+9. 在 `references.bib` 中维护参考文献，并在正文中用 `\cite{citation-key}` 引用。修改参考文献后请重新运行 `latexmk -xelatex main.tex`。
+10. 链接脚注示例见 `chapters/chapter1.tex`，写法为 `\footnote{\href{https://github.com/Yuki-zik}{GitHub: Yuki-zik}}`。
+11. 每次提交或交给老师前，重新完整编译一次，并检查目录、图表编号、参考文献和 PDF 页眉页脚。
 
 ## 第一次修改清单
 
@@ -159,10 +164,11 @@ Overleaf 精简包可能不包含 `fonts/`，用于降低上传体积。Overleaf
 1. 在 `main.tex` 中替换中文题目、英文题目、专业、班级、学号、姓名、指导教师、日期和关键词。
 2. 在 `frontmatter/abstract_zh.tex` 写中文摘要。
 3. 在 `frontmatter/abstract_en.tex` 写英文摘要。
-4. 从 `chapters/chapter1.tex` 开始替换正文示例。
-5. 把自己的图片放入 `figures/`，把自己的表格放入 `tables/`。
-6. 在 `references.bib` 中添加真实参考文献，并在正文中使用 `\cite{...}` 引用。
-7. 运行 `latexmk -xelatex main.tex`，打开 `build/main.pdf` 检查结果。
+4. 在 `backmatter/acknowledgements.tex` 重写致谢。
+5. 从 `chapters/chapter1.tex` 开始替换正文示例。
+6. 把自己的图片放入 `figures/`，把自己的表格放入 `tables/`。
+7. 在 `references.bib` 中添加真实参考文献，并在正文中使用 `\cite{...}` 引用。
+8. 运行 `latexmk -xelatex main.tex`，打开 `build/main.pdf` 检查结果。
 
 ## 常见问题
 
@@ -203,7 +209,7 @@ Overleaf 用户请使用 `Recompile from scratch`。
 - 字体：模板随附 FandolSong、FandolHei、FandolKai 和 TeX Gyre Termes 作为宋体、黑体、楷体和 Times 兼容字体。
 - 章节：一级标题居中，二级和三级标题左对齐；正文最多使用 `\chapter`、`\section`、`\subsection` 三级标题。
 - 目录：自动生成，显示到三级标题；目录内容宋体五号、单倍行距，页码右对齐。
-- 摘要：中文摘要和英文摘要分别使用 `\zhabstract{...}` 与 `\enabstract{...}`；关键词在 `main.tex` 中统一设置。
+- 摘要：中文摘要和英文摘要分别使用 `\zhabstract{...}` 与 `\enabstract{...}`；关键词在 `main.tex` 中统一设置；摘要正文、关键词内容和英文 `KEYWORDS` 标签按实际小四 12 pt、固定 22 pt 行距输出。
 - 图题：自动输出为 `图1-1  图题`，图号和题名之间为两个普通空格；正文使用 `图~\ref{...}` 引用。
 - 表题：自动输出为 `表1-1  表题`；普通表格优先使用 `booktabs` 三线表。
 - 公式：使用 LaTeX 公式环境，编号自动为 `(章节号.公式号)`；正文中使用 `式~\eqref{...}` 引用。
