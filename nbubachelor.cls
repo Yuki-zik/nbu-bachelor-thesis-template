@@ -80,6 +80,31 @@
 {\newcommand{\NBU@kaiti}{\kaishu}}
 \newcommand{\NBU@simsun}{\NBU@songti}
 
+\IfFileExists{fonts/texgyretermes-regular.otf}
+{\newfontfamily\NBU@abstractlatin[
+        Path=fonts/,
+        Scale=1.142857,
+        UprightFont=texgyretermes-regular.otf,
+        BoldFont=texgyretermes-bold.otf,
+        ItalicFont=texgyretermes-italic.otf,
+        BoldItalicFont=texgyretermes-bolditalic.otf
+    ]{texgyretermes-regular.otf}}
+{\IfFontExistsTF{Times New Roman}
+    {\newfontfamily\NBU@abstractlatin[Scale=1.142857]{Times New Roman}}
+    {\newfontfamily\NBU@abstractlatin[Scale=1.142857]{TeX Gyre Termes}}}
+\IfFileExists{fonts/FandolKai-Regular.otf}
+{\newCJKfontfamily\NBU@abstractkaiti[Path=fonts/,Scale=1.142857,BoldFont=FandolKai-Regular.otf,AutoFakeBold=2.5]{FandolKai-Regular.otf}}
+{\IfFontExistsTF{KaiTi}
+    {\newCJKfontfamily\NBU@abstractkaiti[Scale=1.142857]{KaiTi}}
+    {\IfFontExistsTF{STKaiti}
+        {\newCJKfontfamily\NBU@abstractkaiti[Scale=1.142857]{STKaiti}}
+        {\IfFontExistsTF{Kaiti SC}
+            {\newCJKfontfamily\NBU@abstractkaiti[Scale=1.142857]{Kaiti SC}}
+            {\IfFontExistsTF{FandolKai-Regular.otf}
+                {\newCJKfontfamily\NBU@abstractkaiti[Scale=1.142857]{FandolKai-Regular.otf}}
+                {\newcommand{\NBU@abstractkaiti}{\NBU@kaiti}}}}}}
+\newcommand{\NBU@abstractbodyfont}{\NBU@abstractkaiti\NBU@abstractlatin\zihao{-4}}
+
 \setstretch{1.5}
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0pt}
@@ -276,16 +301,16 @@
     {\centering\NBU@heiti\mdseries\fontsize{18bp}{32bp}\selectfont \NBU@titlecn\par}\vspace{17bp}
     {\centering\NBU@heiti\mdseries\fontsize{18bp}{32bp}\selectfont 摘\quad 要\par}\vspace{17bp}
     \addcontentsline{toc}{chapter}{摘\ 要}
-    \begingroup\NBU@kaiti\NBU@latin\zihao{-4}\setstretch{1}\setlength{\baselineskip}{22pt}\setlength{\parindent}{2em}\indent #1\par\vspace{1em}
-    \indent{\NBU@heiti\NBU@latin\mdseries\zihao{-4}关键字\hspace{1em}}{\NBU@latin\NBU@keywords}\par\endgroup\endgroup\clearpage}
+    \begingroup\NBU@abstractbodyfont\setstretch{1}\setlength{\baselineskip}{22pt}\setlength{\parindent}{2em}\indent #1\par\vspace{1em}
+    \indent{\NBU@heiti\NBU@abstractlatin\mdseries\zihao{-4}关键字\hspace{1em}}{\NBU@keywords}\par\endgroup\endgroup\clearpage}
 
 \newcommand{\enabstract}[1]{%
     \clearpage\phantomsection\begingroup\setstretch{1}
     {\centering\NBU@latin\bfseries\fontsize{18bp}{32bp}\selectfont \NBU@titleen\par}\vspace{17bp}
     {\centering\NBU@heiti\mdseries\fontsize{18bp}{32bp}\selectfont Abstract\par}\vspace{17bp}
     \addcontentsline{toc}{chapter}{Abstract}
-    \begingroup\NBU@kaiti\NBU@latin\zihao{-4}\setstretch{1}\setlength{\baselineskip}{22pt}\setlength{\parindent}{1em}\indent #1\par\vspace{1em}
-    \indent{\NBU@latin\bfseries KEYWORDS\space}{\NBU@latin\NBU@enkeywords}\par\endgroup\endgroup\clearpage}
+    \begingroup\NBU@abstractbodyfont\setstretch{1}\setlength{\baselineskip}{22pt}\setlength{\parindent}{1em}\indent #1\par\vspace{1em}
+    \indent{\NBU@abstractlatin\bfseries KEYWORDS\space}{\NBU@enkeywords}\par\endgroup\endgroup\clearpage}
 
 \AtBeginBibliography{\NBU@songti\NBU@latin\zihao{5}\setstretch{1.5}\justifying\setlength{\parindent}{0pt}\setlength{\parskip}{0pt}\setlength{\bibhang}{0pt}\setlength{\bibitemsep}{0pt}\setlength{\bibparsep}{0pt}}
 \defbibenvironment{bibliography}{\list{}{\setlength{\labelwidth}{0pt}\setlength{\labelsep}{0pt}\setlength{\leftmargin}{0pt}\setlength{\itemindent}{0pt}\setlength{\listparindent}{0pt}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}\renewcommand*{\makelabel}[1]{##1}}}{\endlist}{\item\printtext[labelnumberwidth]{\printfield{labelprefix}\printfield{labelnumber}}\addspace}
