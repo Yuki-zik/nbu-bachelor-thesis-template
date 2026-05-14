@@ -6,7 +6,7 @@
 
 ## 渲染预览
 
-以下图片由当前模板 PDF 以 220 DPI 渲染生成，用于快速查看封面、诚信承诺、目录和摘要页效果。预览图额外添加了浅灰展示底和细边框，便于在 GitHub 页面中辨认纸张边界；正式使用时，请以本地或 Overleaf 编译得到的 PDF 为准。
+以下图片由当前模板 PDF 以 220 DPI 渲染生成，用于快速查看封面、诚信承诺、目录和摘要页效果。预览图额外添加了浅灰展示底和细边框，便于在 GitHub 页面中辨认纸张边界；正式使用时，请以本地或 `Overleaf` 在线 LaTeX 平台编译得到的 PDF 为准。
 
 当前预览已同步摘要格式修复：中英文摘要正文、中文关键词内容、英文 `KEYWORDS` 标签和英文关键词内容均按实际小四字号显示。
 
@@ -27,17 +27,17 @@
 
 ## 快速开始
 
-### 方式一：使用 Overleaf
+### 方式一：使用 `Overleaf` 在线 LaTeX 平台
 
 适合不想在电脑上安装 TeX Live 的用户。
 
-1. 打开 Overleaf，选择 New Project -> Upload Project。
+1. 打开 `https://www.overleaf.com`，登录后选择 New Project -> Upload Project。
 2. 上传本模板 zip。压缩包根目录应直接包含 `main.tex`，不要再套一层外部文件夹。
 3. 进入项目后，打开左侧 Settings，把 Compiler 设为 `XeLaTeX`。
 4. 点击 Recompile。若目录页只显示“目 录”标题，使用 Recompile 下拉菜单中的 `Recompile from scratch`。
 5. 编译完成后，检查预览中是否有封面、诚信承诺、目录、摘要、正文、参考文献、致谢和附录。
 
-如果你拿到两个压缩包，优先在 Overleaf 上传精简包；完整包包含 `fonts/`，更适合本地离线使用。
+如果你拿到两个压缩包，优先在 `Overleaf` 在线平台上传精简包；完整包包含 `fonts/`，更适合本地离线使用。
 
 ### 方式二：本地使用 VS Code
 
@@ -89,7 +89,7 @@ nbu-bachelor-thesis-template/
 │   └── appendix_a.tex       # 附录占位文本
 ├── docs/
 │   └── preview/             # README 使用的高清渲染预览图
-├── fonts/                   # 完整包随附字体；Overleaf 精简包可能不含该目录
+├── fonts/                   # 完整包随附字体；`Overleaf` 精简包可能不含该目录
 ├── figures/                 # 图片目录，含宁波大学封面头图
 │   └── nbu_cover_header.png # 宁波大学封面头图
 ├── tables/                  # 可复用表格片段
@@ -121,7 +121,7 @@ latexmk -xelatex main.tex
 
 请不要只运行一次 `xelatex main.tex`。目录、交叉引用和参考文献依赖多轮编译；单次 XeLaTeX 首轮 PDF 可能只显示“目 录”标题而没有目录条目。
 
-在 Overleaf 中使用时，请在项目 Settings 中选择 `XeLaTeX` 编译器。Overleaf 会按所选编译器执行多轮构建；如果预览只显示“目 录”标题而没有条目，使用 Recompile 下拉菜单中的 `Recompile from scratch`，并等待完整编译完成。
+在 `Overleaf` 在线 LaTeX 平台中使用时，请在项目 Settings 中选择 `XeLaTeX` 编译器。该平台会按所选编译器执行多轮构建；如果预览只显示“目 录”标题而没有条目，使用 Recompile 下拉菜单中的 `Recompile from scratch`，并等待完整编译完成。
 
 清理辅助文件：
 
@@ -137,7 +137,7 @@ latexmk -c
 
 完整模板在 `fonts/` 目录打包了 Fandol 中文字体、TeX Gyre Termes 英文字体和数学字体。`nbubachelor.cls` 默认优先从该目录加载字体，复制整个完整项目后通常不需要额外安装宋体、黑体、楷体或 Times New Roman。
 
-Overleaf 精简包可能不包含 `fonts/`，用于降低上传体积。Overleaf 自带 TeX Live 和 Fandol 字体，通常仍可编译；如果你在本地使用，建议使用包含 `fonts/` 的完整包。
+`Overleaf` 精简包可能不包含 `fonts/`，用于降低上传体积。`Overleaf` 在线平台自带 TeX Live 和 Fandol 字体，通常仍可编译；如果你在本地使用，建议使用包含 `fonts/` 的完整包。
 
 摘要页使用独立的中英文摘要字体配置，避免中文楷体或英文字体在 PDF 中被压缩为 10.5 pt；完整包和无 `fonts/` 的精简包均应保持摘要正文与关键词内容为实际 12 pt。
 
@@ -180,7 +180,7 @@ Overleaf 精简包可能不包含 `fonts/`，用于降低上传体积。Overleaf
 latexmk -xelatex main.tex
 ```
 
-Overleaf 用户请使用 `Recompile from scratch`。
+`Overleaf` 用户请使用 `Recompile from scratch`。
 
 ### 报错 `fontspec requires either XeTeX or LuaTeX`
 
@@ -188,7 +188,7 @@ Overleaf 用户请使用 `Recompile from scratch`。
 
 ### 报错找不到 `biber`
 
-说明 TeX 发行版安装不完整。请安装完整 TeX Live/MacTeX，或在 Overleaf 中编译。
+说明 TeX 发行版安装不完整。请安装完整 TeX Live/MacTeX，或在 `Overleaf` 在线平台中编译。
 
 ### 参考文献不显示或引用显示问号
 
@@ -198,9 +198,9 @@ Overleaf 用户请使用 `Recompile from scratch`。
 
 请确认图片文件在 `figures/` 目录中，路径大小写与 `\includegraphics{...}` 完全一致。建议图片文件名使用英文，不要使用空格。
 
-### Overleaf 免费计划编译超时
+### `Overleaf` 免费计划编译超时
 
-完整字体包体积较大，上传和编译可能更慢。Overleaf 中优先使用精简包；如果仍然超时，可以先删减示例图片或在本地编译最终 PDF。
+完整字体包体积较大，上传和编译可能更慢。`Overleaf` 在线平台中优先使用精简包；如果仍然超时，可以先删减示例图片或在本地编译最终 PDF。
 
 ## 主要格式规范
 
